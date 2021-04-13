@@ -10,7 +10,7 @@ module.exports = {
                 res.json(err);
             })
     },
-    createUser: (req, res) => {
+    register: (req, res) => {
         User.create(req.body)
             .then((newUser) => res.json(newUser))
             .catch((err) => {
