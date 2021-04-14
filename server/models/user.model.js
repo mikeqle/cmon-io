@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
     }
 }, { timestamps: true});
 
-// Confirm password field
+// Make sure confirmPassword match password field before saving the user into database
 UserSchema.virtual('confirmPassword')
 	.get( () => this._confirmPassword)
 	.set( value => this._confirmPassword = value);
