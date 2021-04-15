@@ -46,7 +46,7 @@ module.exports = {
         }, jwt_secret);
 
         res
-            .cookie("usertoken", userToken, jwt_secret, {
+            .cookie("usertoken", userToken, {
                 httpOnly: true
             })
             .json({msg: "login successful!"});
