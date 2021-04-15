@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { navigate } from '@reach/router';
+import { Link,navigate } from '@reach/router';
 
 const RegisterForm = (props) => {
     const [ username, setUsername ] = useState("");
@@ -25,15 +25,17 @@ const RegisterForm = (props) => {
                     setErrors(res.data.errors);
                 }
                 else {
+                    // do something here: log people in
+                    // to log people in we need to have an api page that requires authentication
                     navigate("/");
                 }
             })
             .catch((err) => console.log(err));
-    }
+    };
 
     return(
         <div>
-            <button>already have an account? Login here</button>
+            <Link to={ `/login` }><button>Log In</button></Link>
             <h2>Signup with us</h2>
             <form onSubmit={ onSubmitHandler }>
                 <div>

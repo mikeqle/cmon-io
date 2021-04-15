@@ -15,4 +15,6 @@ require('./config/mongoose.config');
 // set up routes
 require('./routes/user.routes')(app);
 
+console.log(process.env.SECRET_KEY);
+
 app.listen(port, () => console.log("Listening on port: " + port));
