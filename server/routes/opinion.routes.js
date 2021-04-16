@@ -3,4 +3,5 @@ const OpinionController = require('../controllers/opinion.controller');
 module.exports = (app) => {
     app.get('/api/o/', OpinionController.getLatestOpinions);
     app.post('/api/o/', OpinionController.createOpinion);
+    app.delete('/api/o/:id', OpinionController.concede);
 };
