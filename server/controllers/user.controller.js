@@ -1,8 +1,9 @@
-const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const jwt_secret = process.env.SECRET_KEY;
 
+const User = require('../models/user.model');
+const Opinion = require('../models/opinion.model');
 
 module.exports = {
     getAllUsers: (req, res) => {
@@ -55,5 +56,15 @@ module.exports = {
     logout: (req, res) => {
         res.clearCookie('usertoken');
         res.sendStatus(200);
+    },
+
+    getAllOpinions: (req, res) => {
+        Opinion.find({userId: req.params.userId })
+            .then((allOpinions) => res.json(allOpinions))
+            .catch((err) => {
+                console.log("Error found in getAllOpinions");
+                console.log(err);
+                res.json(err);
+            })
     },
 }

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Opinion = require('../models/opinion.model');
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 
