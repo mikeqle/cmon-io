@@ -20,8 +20,10 @@ const LoginForm = (props) => {
                 else {
                     // do something here: log people in
                     // to log people in we need to have an api page that requires authentication
-                    navigate("/home");
-                    console.log("Do something with login form")
+                    if (res.data.msg === "login successful!") {
+                        localStorage.setItem('userId', res.data.userId);
+                        navigate('/home');
+                    }
                 }
             })
             .catch((err) => console.log(err));
