@@ -50,7 +50,10 @@ module.exports = {
             .cookie("usertoken", userToken, {
                 httpOnly: true
             })
-            .json({msg: "login successful!"});
+            .json({
+                msg: "login successful!",
+                userId: user._id
+            });
     },
     
     logout: (req, res) => {
