@@ -13,6 +13,15 @@ const Profile = (props) => {
             .catch((err) => console.log(err));
     }, []);
 
+    const onClickConcede = (e) => {
+        axios.delete("http://localhost:8000/api/o/" + e.target.value)
+            .then((res) => {
+                console.log(res.data);
+                setYourOpinions(yourOpinions.filter((opinionElement) => opinionElement._id !== e.target.value )); 
+            })
+            .catch((err) => console.log(err));
+    };
+
     return(
         <div>
             <table>
@@ -30,7 +39,7 @@ const Profile = (props) => {
                             <td>Upvotes: { opinion.yea }, Downvotes: { opinion.nay }</td>
                             <td>
                                 <button>Details</button>
-                                <button>Concede</button>
+                                <button value={ opinion._id }onClick={onClickConcede}>Concede</button>
                             </td>
                         </tr>
                     ))
