@@ -43,5 +43,22 @@ module.exports = {
                 console.log(err);
                 res.json(err);
             })
+    },
+
+    update: (req, res) => {
+        Opinion.findByIdAndUpdate(
+            req.params.id,
+            { $set: { ...req.body } },
+            {
+                runValidators: true,
+                new: true,
+            }
+        )
+        .then((updatedOpinion) => res.json(updatedOpinion))
+        .catch((err) => {
+            console.log("Error found in update");
+            console.log(err);
+            res.json(err);
+        })
     }
 };
