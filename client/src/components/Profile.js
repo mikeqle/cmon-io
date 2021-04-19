@@ -24,6 +24,7 @@ const Profile = (props) => {
 
     return(
         <div>
+            <h2>Your opinions</h2>
             <table>
                 <thead>
                     <tr>
@@ -39,8 +40,7 @@ const Profile = (props) => {
                             <td>{ opinion.content }</td>
                             <td>Upvotes: { opinion.yea }, Downvotes: { opinion.nay }</td>
                             <td>
-                                <button>Details</button>
-                                <button value={ opinion._id }onClick={onClickConcede}>Concede</button>
+                                <button className="refuteBtn" value={ opinion._id }onClick={onClickConcede}>Concede</button>
                             </td>
                         </tr>
                     ))

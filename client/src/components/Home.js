@@ -20,11 +20,8 @@ const Home = (props) => {
 
 
     return (
-        <div>
-            {/* =========Need a nav bar here */} 
-            <button onClick={ onLogout }>Logout</button>
-            <Link to={ `/post` }><button>Post an opinion</button></Link>
-            <h1>Home</h1>
+        <div>        
+            <h2>Home</h2>
             <table>
                 <thead>
                     <tr>
@@ -41,7 +38,7 @@ const Home = (props) => {
                                 <td>Upvotes: { opinion.yea }, Downvotes: { opinion.nay }</td>
                                 <td>
                                     <Link to={ `/opinions/${opinion._id}` }><button>Detail</button></Link>
-                                    <Link to={ `/refute/${opinion._id}` }><button>Refute</button></Link>
+                                    <Link to={ `/refute/${opinion._id}` }><button className="refuteBtn">Refute</button></Link>
                                 </td>
                             </tr>
                         ))

@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 
 const NavBar = (props) => {
+    const onLogout = (e) => {
+        e.preventDefault();
+        localStorage.clear();
+        navigate('/');
+    }
+    
     return(
-        <div>
-            <Link to={ "/home" }>Home</Link>
-            {/* <Link to={ "/common" }>Common Facts</Link>
-            <Link to={ "/contested" }>Disputed</Link> */}
-            <Link to={ "/profile" }>Your Opinions</Link>
+        <div className="navBar">
+            <Link to={ "/home" }><button>Home</button></Link>
+            <Link to={ "/profile" }><button>Your Opinions</button></Link>
+            <Link to={ `/post` }><button>Post an opinion</button></Link>
+            <button id="logoutBtn" onClick={ onLogout }>Logout</button>
         </div>
     )
 };

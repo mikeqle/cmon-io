@@ -45,12 +45,13 @@ const OpinionDetail = (props) => {
     return(
         <div>
             <h2>Details</h2>
-            <Link to={ `/refute/${opinion._id}` }><button>Refute this opinion</button></Link>
+            
             <div>
                 <p>{opinion.content}</p>
                 <p>Upvotes: {opinion.yea}; Downvotes: {opinion.nay}</p>
                 <button onClick={onClickUpvote}>Upvote</button>
-                <button onClick={onClickDownvote}>Downvote</button>
+                <button className="deleteBtn" onClick={onClickDownvote}>Downvote</button>
+                <Link to={ `/refute/${opinion._id}` }><button className="refuteBtn">Refute this opinion</button></Link>
             </div>
             <h3>Top refutes</h3>
             <div>
@@ -60,19 +61,6 @@ const OpinionDetail = (props) => {
                     ))
                 }
 
-
-{/* {
-                    yourOpinions.map((opinion, idx) => (
-                        <tr key={idx}>
-                            <td>{ opinion.content }</td>
-                            <td>Upvotes: { opinion.yea }, Downvotes: { opinion.nay }</td>
-                            <td>
-                                <button>Details</button>
-                                <button value={ opinion._id }onClick={onClickConcede}>Concede</button>
-                            </td>
-                        </tr>
-                    ))
-                } */}
             </div>
         </div>
     )
