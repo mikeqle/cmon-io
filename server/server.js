@@ -17,5 +17,6 @@ require('./config/mongoose.config');
 // set up routes
 require('./routes/user.routes')(app);
 require('./routes/opinion.routes')(app);
+require('./routes/refute.routes')(app);
 
 app.listen(port, () => console.log("Listening on port: " + port));
