@@ -7,6 +7,7 @@ import LoginForm from './components/LoginForm';
 import Home from './components/Home';
 import PostOpinion from './components/PostOpinion';
 import Profile from './components/Profile';
+import OpinionDetail from './components/OpinionDetail';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Home path="/home" />
         <PostOpinion path="/post" />
         <Profile path="/profile" />
+        <OpinionDetail path="/opinions/:id" />
       </Router>
     </div>
   );

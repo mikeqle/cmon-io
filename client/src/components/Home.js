@@ -40,8 +40,8 @@ const Home = (props) => {
                             <td>
                                 <button>Upvote</button>
                                 <button>Downvote</button>
-                                <button>Detail</button>
-                                <button>Refute</button>
+                                <Link to={ `/opinions/${opinion._id}` }><button>Detail</button></Link>
+                                <Link to={ `/refute/${opinion._id}` }><button>Refute</button></Link>
                             </td>
                         </tr>
                     ))
