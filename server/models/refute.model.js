@@ -18,7 +18,7 @@ const RefuteSchema = mongoose.Schema({
         // userId of the owner of this refute
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        required: [ true, "Your opinion needs an owner"]
+        required: [ true, "Your refute needs an owner"]
     }
 }, { timestamps: true });
 

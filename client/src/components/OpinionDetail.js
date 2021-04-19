@@ -4,12 +4,20 @@ import axios from 'axios';
 
 const OpinionDetail = (props) => {
     const [ opinion, setOpinion ] = useState({});
+    const [ allRefutes, setAllRefutes ] = useState([]);
         
     useEffect(() => {
         axios.get("http://localhost:8000/api/o/" + props.id)
             .then((res) => {
                 console.log(res.data);
                 setOpinion(res.data);
+            })
+            .catch((err) => console.log(err));
+
+        axios.get("http://localhost:8000/api/r/" + props.id)
+            .then((res) => {
+                console.log(res.data);
+                setAllRefutes(res.data);
             })
             .catch((err) => console.log(err));
     }, [props.id])
@@ -45,7 +53,27 @@ const OpinionDetail = (props) => {
                 <button onClick={onClickDownvote}>Downvote</button>
             </div>
             <h3>Top refutes</h3>
-            <p>Put top refutes here</p>
+            <div>
+                {
+                    allRefutes.map((refute, idx) => (
+                        <p key={idx}>{refute.content}</p>
+                    ))
+                }
+
+
+{/* {
+                    yourOpinions.map((opinion, idx) => (
+                        <tr key={idx}>
+                            <td>{ opinion.content }</td>
+                            <td>Upvotes: { opinion.yea }, Downvotes: { opinion.nay }</td>
+                            <td>
+                                <button>Details</button>
+                                <button value={ opinion._id }onClick={onClickConcede}>Concede</button>
+                            </td>
+                        </tr>
+                    ))
+                } */}
+            </div>
         </div>
     )
 };

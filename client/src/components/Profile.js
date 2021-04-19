@@ -32,6 +32,7 @@ const Profile = (props) => {
                         <th>Actions</th>
                     </tr>
                 </thead>
+                <tbody>
                 {
                     yourOpinions.map((opinion, idx) => (
                         <tr key={idx}>
@@ -44,6 +45,7 @@ const Profile = (props) => {
                         </tr>
                     ))
                 }
+                </tbody>
             </table>
         </div>
     )
