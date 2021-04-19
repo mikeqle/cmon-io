@@ -18,6 +18,7 @@ const Home = (props) => {
             .catch((err) => console.log(err));
     }, [])
 
+
     return (
         <div>
             {/* =========Need a nav bar here */} 
@@ -32,20 +33,20 @@ const Home = (props) => {
                         <th>Actions</th>
                     </tr>
                 </thead>
-                {
-                    allOpinions.map((opinion, idx) => (
-                        <tr key={idx}>
-                            <td>{ opinion.content }</td>
-                            <td>Upvotes: { opinion.yea }, Downvotes: { opinion.nay }</td>
-                            <td>
-                                <button>Upvote</button>
-                                <button>Downvote</button>
-                                <Link to={ `/opinions/${opinion._id}` }><button>Detail</button></Link>
-                                <Link to={ `/refute/${opinion._id}` }><button>Refute</button></Link>
-                            </td>
-                        </tr>
-                    ))
-                }
+                <tbody>
+                    {
+                        allOpinions.map((opinion, idx) => (
+                            <tr key={idx}>
+                                <td>{ opinion.content }</td>
+                                <td>Upvotes: { opinion.yea }, Downvotes: { opinion.nay }</td>
+                                <td>
+                                    <Link to={ `/opinions/${opinion._id}` }><button>Detail</button></Link>
+                                    <Link to={ `/refute/${opinion._id}` }><button>Refute</button></Link>
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
             </table>
 
         </div>
