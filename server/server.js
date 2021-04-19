@@ -8,7 +8,7 @@ const port = 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors());
 
 // setup mongodb 
 // this require statement is like copying and pasting the code from the file right here!
