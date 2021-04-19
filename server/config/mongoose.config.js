@@ -4,7 +4,8 @@ const db_name = "cmon";
 mongoose.connect("mongodb://localhost/" + db_name, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: false
 })
     .then( () => console.log("Successfully connected to the " + db_name + " database") )
     .catch((err) => {
